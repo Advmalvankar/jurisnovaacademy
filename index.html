@@ -87,7 +87,7 @@ header p {
 .nav-menu a {
     margin: 5px;
     padding: 8px 14px;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.65);
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -235,6 +235,14 @@ footer {
     border-top: 1px solid rgba(255,255,255,0.2);
 }
 
+header.menu-open h1,
+header.menu-open p {
+    display: none;
+}
+
+header.menu-open {
+    background: #0b2c5f !important;
+}
 </style>
 </head>
 
@@ -339,6 +347,7 @@ Adv. Akshay Devdatta Malvankar
 <script>
 document.querySelector(".menu-toggle").onclick = function () {
     document.getElementById("menu").classList.toggle("active");
+    document.querySelector("header").classList.toggle("menu-open");
 };
 
 /* SCROLL REVEAL */
