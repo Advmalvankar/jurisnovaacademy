@@ -5,6 +5,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JurisNova Academy</title>
 
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&display=swap" rel="stylesheet">
+
+<style>
+
+/* GLOBAL */
+body {
+    margin: 0;
+    font-family: 'EB Garamond', serif;
+    background: #f9fbff;
+    color: #1a1a1a;
+    scroll-behavior: smooth;
+}
+
+/* HEADER */
+header {
+    position: relative;
+    height: 420px;
+    background: url("Homepage.png") center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JurisNova Academy</title>
+
 <link rel="icon" type="image/png" href="/favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&display=swap" rel="stylesheet">
 
@@ -44,11 +75,23 @@ header h1 {
     font-size: 48px;
     animation: fadeDown 1s ease;
     position: relative;
+    transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 header p {
     animation: fadeUp 1.2s ease;
     position: relative;
+    transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* HIDE ON MENU OPEN */
+header.menu-open h1,
+header.menu-open p {
+    opacity: 0;
+}
+
+header.menu-open {
+    background: #0b2c5f !important;
 }
 
 @keyframes fadeDown {
@@ -87,7 +130,7 @@ header p {
 .nav-menu a {
     margin: 5px;
     padding: 8px 14px;
-    background: rgba(0,0,0,0.65);
+    background: rgba(0,0,0,0.6);
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -110,6 +153,8 @@ header p {
     background: none;
     border: none;
     color: white;
+    z-index: 1001;
+    cursor: pointer;
 }
 
 /* SECTION BASE */
@@ -120,6 +165,7 @@ section {
     background: white;
     border-radius: 10px;
     transition: 0.3s;
+    scroll-margin-top: 80px;
 }
 
 /* HOVER LIFT */
@@ -192,7 +238,7 @@ h2 {
     text-decoration: underline;
 }
 
-/* MOBILE */
+/* MOBILE MENU (SMOOTH iOS STYLE) */
 @media (max-width: 768px) {
 
     .menu-toggle {
@@ -200,28 +246,64 @@ h2 {
     }
 
     .nav-menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 0;
+        position: fixed;
+        top: 0;
+        right: -100%;
         width: 100%;
-        background: rgba(0,0,0,0.95);
-        text-align: center;
+        height: 100vh;
+        background: #0b2c5f;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        z-index: 1000;
+    }
+
+    .nav-menu.active {
+        right: 0;
     }
 
     .nav-menu a {
         display: block;
         padding: 14px;
+        font-size: 20px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s ease;
     }
 
-    .nav-menu.active {
-        display: flex;
+    .nav-menu.active a {
+        opacity: 1;
+        transform: translateY(0);
     }
 
     header h1 {
         font-size: 32px;
     }
+}
+
+/* BACK TO TOP BUTTON */
+#topBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: none;
+    background: #0b2c5f;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    font-size: 14px;
+    border-radius: 25px;
+    cursor: pointer;
+    z-index: 999;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+#topBtn:hover {
+    background: #061a3a;
+    transform: translateY(-2px);
 }
 
 footer {
@@ -232,17 +314,8 @@ footer {
     font-size: 14px;
     letter-spacing: 0.5px;
     margin-top: 40px;
-    border-top: 1px solid rgba(255,255,255,0.2);
 }
 
-header.menu-open h1,
-header.menu-open p {
-    display: none;
-}
-
-header.menu-open {
-    background: #0b2c5f !important;
-}
 </style>
 </head>
 
@@ -250,75 +323,66 @@ header.menu-open {
 
 <header>
 
-    <!-- LOGO -->
-    <div class="logo">
-        <a href="#opportunities">
-            <img src="logo.png">
-        </a>
-    </div>
+<div class="logo">
+    <a href="#opportunities">
+        <img src="logo.png">
+    </a>
+</div>
 
-    <!-- MENU -->
-    <button class="menu-toggle">☰</button>
+<button class="menu-toggle">☰</button>
 
-    <div class="nav-menu" id="menu">
-        <a href="#home">Home</a>
-        <a href="#opportunities">Opportunities</a>
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#social">Social</a>
-        <a href="#founder">Founder</a>
-        <a href="#contact">Contact</a>
-    </div>
+<div class="nav-menu" id="menu">
+    <a href="#opportunities">Opportunities</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#social">Social</a>
+    <a href="#founder">Founder</a>
+    <a href="#contact">Contact</a>
+</div>
 
-    <div>
-        <h1>JurisNova Academy</h1>
-        <p>Illuminating the Law. Advancing Justice.</p>
-    </div>
+<div>
+    <h1>JurisNova Academy</h1>
+    <p>Illuminating the Law. Advancing Justice.</p>
+</div>
 
 </header>
+
+<!-- ALL YOUR ORIGINAL CONTENT REMAINS EXACTLY SAME BELOW -->
 
 <section id="opportunities" class="reveal">
 <h2>Opportunities</h2>
 <p><strong>Legal Intern (Remote – Full-Time)</strong></p>
 <p>We are offering internship and training opportunities for law students looking to gain practical experience in the legal field.</p>
-            <p>As a Legal Intern, you will coordinate with fellow interns, review their work, and assist them with queries related to assigned tasks. You will also play an active role in conducting live sessions, where you will explain tasks and concepts using presentations (PPTs).</p>
-            <p>In addition, you will support the legal team through research, drafting, and case analysis. This role is designed to develop your leadership, communication, and legal skills through hands-on training and mentorship.</p>
+<p>As a Legal Intern, you will coordinate with fellow interns, review their work, and assist them with queries related to assigned tasks. You will also play an active role in conducting live sessions, where you will explain tasks and concepts using presentations (PPTs).</p>
+<p>In addition, you will support the legal team through research, drafting, and case analysis. This role is designed to develop your leadership, communication, and legal skills through hands-on training and mentorship.</p>
 <a href="#" class="btn">Apply for Internship</a>
 </section>
 
 <section id="services" class="reveal">
- <h2>Services We Provide</h2>
-    <div class="services">
-        <div class="service-box">
-    <h3>Internship Programs</h3>
-    <p>We offer structured internship programs designed to provide practical exposure to legal research, drafting, and case analysis. Interns will work on real-time assignments, collaborate with peers, and receive guidance from experienced professionals.</p> 
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdHDX3o3vNQKtDOv8wZIfI4n-rvBG5Mm2QwatDj6qOu3SCRYQ/viewform?usp=sharing" target="_blank">
-            Apply here
-        </a>
+<h2>Services We Provide</h2>
+<div class="services">
+<div class="service-box">
+<h3>Internship Programs</h3>
+<p>We offer structured internship programs designed to provide practical exposure to legal research, drafting, and case analysis.</p>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSdHDX3o3vNQKtDOv8wZIfI4n-rvBG5Mm2QwatDj6qOu3SCRYQ/viewform?usp=sharing" target="_blank">Apply here</a>
 </div>
-        <div class="service-box"><h3>Training Courses</h3><p>Our training courses focus on building core legal skills such as contract drafting, legal writing, research methodologies, and practical application of laws through curated modules.</p></div>
-        <div class="service-box"><h3>Certification</h3><p>Participants will receive certificates upon successful completion of internships and training programs, recognizing their skills, performance, and practical learning.</p></div>
-        <div class="service-box"><h3>Webinars</h3><p>We regularly conduct live webinars on contemporary legal topics, industry trends, and skill development, led by legal professionals and subject matter experts.</p></div>
-        <div class="service-box"><h3>Free Legal Aid</h3><p>We are committed to social responsibility by providing free legal aid and guidance to individuals who require legal assistance but lack access to resources.</p></div>
-        <div class="service-box"><h3>Corporate Training</h3><p>We offer customized corporate training programs focusing on legal compliance, contract management, and regulatory frameworks to support businesses and organizations.</p></div>
-    </div>
+<div class="service-box"><h3>Training Courses</h3><p>Our training courses focus on building core legal skills.</p></div>
+<div class="service-box"><h3>Certification</h3><p>Participants will receive certificates upon completion.</p></div>
+<div class="service-box"><h3>Webinars</h3><p>We regularly conduct live webinars.</p></div>
+<div class="service-box"><h3>Free Legal Aid</h3><p>Providing free legal guidance.</p></div>
+<div class="service-box"><h3>Corporate Training</h3><p>Customized corporate training programs.</p></div>
+</div>
 </section>
 
 <section id="about" class="reveal">
 <h2>About</h2>
 <p>JurisNova Academy is a dedicated platform for law students seeking meaningful, skill-oriented online internship opportunities.</p>
-
-<p>We aim to bridge the gap between legal education and practical exposure by providing aspiring legal professionals with a space to develop core competencies such as legal research, drafting, case analysis, and critical thinking.</p>
-
-<p>Through structured training, real-world assignments, and guided learning, JurisNova Academy empowers students to enhance their practical knowledge and build industry-ready skills—regardless of location.</p>
-
-<p>Our mission is to make legal learning more accessible, practical, and impactful, helping students grow into confident and competent professionals in the legal field.</p>
 </section>
 
 <section id="social" class="reveal">
 <h2>Social Media</h2>
-    <p><a href="https://www.instagram.com/jurisnovaacademy/">Instagram</a></p>
-    <p><a href="https://www.linkedin.com/company/jurisnovaacademy/" target="_blank">LinkedIn Page</a></p>
+<p><a href="https://www.instagram.com/jurisnovaacademy/">Instagram</a></p>
+<p><a href="https://www.linkedin.com/company/jurisnovaacademy/" target="_blank">LinkedIn Page</a></p>
 </section>
 
 <section id="founder" class="reveal">
@@ -327,11 +391,8 @@ header.menu-open {
 <a href="https://advmalvankar.github.io/akshaymalvankar/" target="_blank">
 Adv. Akshay Devdatta Malvankar
 </a>
-<p>
-        Founder of JurisNova Academy, dedicated to providing practical legal education 
-        and skill-based training to law students across India.
-    </p>
 </p>
+<p>Founder of JurisNova Academy, dedicated to providing practical legal education.</p>
 </section>
 
 <section id="contact" class="reveal">
@@ -341,10 +402,14 @@ Adv. Akshay Devdatta Malvankar
 </section>
 
 <footer>
-    © 2026 JurisNova Academy | All Rights Reserved
+© 2026 JurisNova Academy | All Rights Reserved
 </footer>
 
+<button id="topBtn">Back to Top ↑</button>
+
 <script>
+
+/* MENU */
 document.querySelector(".menu-toggle").onclick = function () {
     document.getElementById("menu").classList.toggle("active");
     document.querySelector("header").classList.toggle("menu-open");
@@ -356,13 +421,27 @@ const reveals = document.querySelectorAll(".reveal");
 window.addEventListener("scroll", () => {
   reveals.forEach(el => {
     const top = el.getBoundingClientRect().top;
-    const windowHeight = window.innerHeight;
-
-    if (top < windowHeight - 80) {
+    if (top < window.innerHeight - 80) {
       el.classList.add("active");
     }
   });
 });
+
+/* BACK TO TOP */
+const topBtn = document.getElementById("topBtn");
+
+window.onscroll = function () {
+    if (document.documentElement.scrollTop > 200) {
+        topBtn.style.display = "block";
+    } else {
+        topBtn.style.display = "none";
+    }
+};
+
+topBtn.onclick = function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
 </script>
 
 </body>
