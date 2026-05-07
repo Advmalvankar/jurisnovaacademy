@@ -140,18 +140,6 @@ section:hover {
     transform: translateY(-5px);
 }
 
-/* SCROLL REVEAL */
-.reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: 0.8s;
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 h2 {
     color: #0b2c5f;
     border-bottom: 2px solid #eee;
@@ -417,18 +405,6 @@ document.addEventListener("click", function (e) {
         menu.classList.remove("active");
         header.classList.remove("menu-open");
     }
-});
-
-/* SCROLL REVEAL */
-const reveals = document.querySelectorAll(".reveal");
-
-window.addEventListener("scroll", () => {
-  reveals.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if (top < window.innerHeight - 80) {
-      el.classList.add("active");
-    }
-  });
 });
 
 /* BACK TO TOP */
