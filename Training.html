@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JurisNova Academy | Training Courses</title>
+
+<link rel="icon" type="image/png" href="logo.png">
+
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+GLOBAL
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'EB Garamond', serif;
+
+    background:#f5f7fc;
+
+    color:#1a1a1a;
+
+    line-height:1.8;
+
+    overflow-x:hidden;
+}
+
+img{
+    max-width:100%;
+    height:auto;
+}
+
+a{
+    text-decoration:none;
+}
+
+/* =========================
+BACKGROUND EFFECTS
+========================= */
+
+.bg-shape{
+
+    position:fixed;
+
+    border-radius:50%;
+
+    background:rgba(11,44,95,0.05);
+
+    z-index:-1;
+
+    animation:float 10s infinite ease-in-out;
+}
+
+.shape1{
+
+    width:240px;
+    height:240px;
+
+    top:8%;
+    left:-100px;
+}
+
+.shape2{
+
+    width:180px;
+    height:180px;
+
+    bottom:10%;
+    right:-80px;
+}
+
+@keyframes float{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-25px);
+    }
+}
+
+/* =========================
+HEADER
+========================= */
+
+header{
+
+    position:relative;
+
+    min-height:100vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.78)),
+    url("Homepage.png") center/cover no-repeat;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:20px;
+
+    overflow:hidden;
+}
+
+/* =========================
+NAVBAR
+========================= */
+
+.navbar{
+
+    position:absolute;
+
+    top:20px;
+    left:0;
+
+    width:100%;
+
+    padding:0 25px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    z-index:1000;
+}
+
+/* LOGO */
+
+.logo img{
+
+    height:72px;
+
+    transition:0.4s ease;
+}
+
+.logo img:hover{
+
+    transform:scale(1.05) rotate(-4deg);
+}
+
+/* MENU */
+
+.menu{
+
+    display:flex;
+
+    gap:14px;
+
+    align-items:center;
+}
+
+.menu a{
+
+    color:white;
+
+    background:rgba(255,255,255,0.10);
+
+    padding:12px 18px;
+
+    border-radius:10px;
+
+    transition:0.3s ease;
+
+    backdrop-filter:blur(10px);
+
+    font-size:18px;
+}
+
+.menu a:hover{
+
+    background:white;
+
+    color:#081d45;
+}
+
+/* MOBILE MENU */
+
+.menu-toggle{
+
+    display:none;
+
+    background:none;
+
+    border:none;
+
+    color:white;
+
+    font-size:30px;
+
+    cursor:pointer;
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero-content{
+
+    max-width:950px;
+
+    position:relative;
+
+    z-index:2;
+}
+
+.hero-content h1{
+
+    color:white;
+
+    font-size:78px;
+
+    margin-bottom:20px;
+
+    animation:fadeDown 1s ease;
+}
+
+.hero-content p{
+
+    color:#f1f1f1;
+
+    font-size:24px;
+
+    margin-bottom:30px;
+
+    animation:fadeUp 1.2s ease;
+}
+
+/* ANIMATED TEXT */
+
+.animated-text{
+
+    position:relative;
+
+    height:50px;
+
+    overflow:hidden;
+}
+
+.animated-text span{
+
+    position:absolute;
+
+    width:100%;
+
+    left:0;
+
+    opacity:0;
+
+    color:white;
+
+    font-size:24px;
+
+    animation:rotateText 16s infinite;
+}
+
+.animated-text span:nth-child(1){
+    animation-delay:0s;
+}
+
+.animated-text span:nth-child(2){
+    animation-delay:4s;
+}
+
+.animated-text span:nth-child(3){
+    animation-delay:8s;
+}
+
+.animated-text span:nth-child(4){
+    animation-delay:12s;
+}
+
+@keyframes rotateText{
+
+    0%{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    10%{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+    25%{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+    35%{
+        opacity:0;
+        transform:translateY(-40px);
+    }
+
+    100%{
+        opacity:0;
+    }
+}
+
+@keyframes fadeDown{
+
+    from{
+        opacity:0;
+        transform:translateY(-30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+SECTION
+========================= */
+
+section{
+
+    width:90%;
+    max-width:1200px;
+
+    margin:50px auto;
+
+    background:white;
+
+    padding:45px;
+
+    border-radius:24px;
+
+    box-shadow:0 12px 35px rgba(0,0,0,0.06);
+
+    transition:0.4s ease;
+}
+
+section:hover{
+
+    transform:translateY(-5px);
+}
+
+h2{
+
+    color:#0b2c5f;
+
+    font-size:42px;
+
+    margin-bottom:18px;
+
+    border-bottom:2px solid #eeeeee;
+
+    padding-bottom:10px;
+}
+
+p{
+
+    font-size:18px;
+
+    margin-bottom:16px;
+}
+
+/* =========================
+COURSE GRID
+========================= */
+
+.course-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:24px;
+
+    margin-top:35px;
+}
+
+/* =========================
+COURSE BOX
+========================= */
+
+.course-box{
+
+    position:relative;
+
+    background:#f4f7ff;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    border-left:5px solid #0b2c5f;
+
+    overflow:hidden;
+
+    transition:0.4s ease;
+}
+
+.course-box:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 12px 30px rgba(0,0,0,0.08);
+}
+
+.course-box::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:160%;
+    height:160%;
+
+    background:
+    linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.45),
+        transparent
+    );
+
+    top:-100%;
+    left:-100%;
+
+    transform:rotate(25deg);
+
+    transition:0.8s;
+}
+
+.course-box:hover::before{
+
+    top:100%;
+    left:100%;
+}
+
+.course-box h3{
+
+    color:#0b2c5f;
+
+    margin-bottom:12px;
+
+    font-size:28px;
+
+    position:relative;
+
+    z-index:2;
+}
+
+.course-box p{
+
+    position:relative;
+
+    z-index:2;
+}
+
+/* =========================
+BUTTON
+========================= */
+
+.suggestion-btn{
+
+    display:inline-flex;
+
+    justify-content:center;
+    align-items:center;
+
+    margin-top:20px;
+
+    background:#0b2c5f;
+
+    color:white;
+
+    padding:15px 28px;
+
+    border-radius:12px;
+
+    font-size:18px;
+
+    transition:0.3s ease;
+}
+
+.suggestion-btn:hover{
+
+    background:#071a3b;
+
+    transform:scale(1.03);
+}
+
+/* =========================
+FOOTER
+========================= */
+
+footer{
+
+    background:#081d45;
+
+    color:white;
+
+    text-align:center;
+
+    padding:30px 20px;
+
+    margin-top:50px;
+
+    font-size:17px;
+}
+
+/* =========================
+REVEAL EFFECT
+========================= */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(60px);
+
+    transition:1s ease;
+}
+
+.reveal.active{
+
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media(max-width:900px){
+
+.hero-content h1{
+    font-size:58px;
+}
+
+.hero-content p{
+    font-size:20px;
+}
+
+}
+
+/* MOBILE MENU */
+
+@media(max-width:768px){
+
+.navbar{
+
+    padding:0 18px;
+}
+
+.logo img{
+    height:58px;
+}
+
+.menu-toggle{
+    display:block;
+}
+
+.menu{
+
+    position:fixed;
+
+    top:0;
+    right:-100%;
+
+    width:100%;
+    height:100vh;
+
+    background:rgba(8,20,45,0.96);
+
+    backdrop-filter:blur(16px);
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    transition:0.4s ease;
+
+    z-index:999;
+}
+
+.menu.active{
+    right:0;
+}
+
+.menu a{
+
+    width:85%;
+
+    text-align:center;
+
+    font-size:20px;
+}
+
+.hero-content{
+
+    width:95%;
+}
+
+.hero-content h1{
+
+    font-size:42px;
+
+    line-height:1.2;
+}
+
+.hero-content p{
+
+    font-size:18px;
+}
+
+.animated-text{
+
+    height:80px;
+}
+
+.animated-text span{
+
+    font-size:18px;
+
+    line-height:1.5;
+}
+
+section{
+
+    width:95%;
+
+    padding:28px 20px;
+}
+
+h2{
+
+    font-size:30px;
+}
+
+p{
+
+    font-size:17px;
+}
+
+.course-grid{
+
+    grid-template-columns:1fr;
+}
+
+.course-box{
+
+    padding:24px;
+}
+
+.course-box h3{
+
+    font-size:24px;
+}
+
+.suggestion-btn{
+
+    width:100%;
+}
+
+}
+
+/* EXTRA SMALL */
+
+@media(max-width:480px){
+
+.hero-content h1{
+    font-size:34px;
+}
+
+.hero-content p{
+    font-size:16px;
+}
+
+.animated-text span{
+    font-size:16px;
+}
+
+h2{
+    font-size:28px;
+}
+
+p{
+    font-size:16px;
+}
+
+section{
+    padding:24px 18px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- BACKGROUND SHAPES -->
+
+<div class="bg-shape shape1"></div>
+<div class="bg-shape shape2"></div>
+
+<!-- HEADER -->
+
+<header id="home">
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+<!-- LOGO -->
+
+<div class="logo">
+
+<a href="https://www.jurisnovaacademy.in/">
+
+<img src="logo.png" alt="JurisNova Academy Logo">
+
+</a>
+
+</div>
+
+<!-- MENU BUTTON -->
+
+<button class="menu-toggle">
+☰
+</button>
+
+<!-- MENU -->
+
+<div class="menu" id="menu">
+
+<a href="https://www.jurisnovaacademy.in/">
+Home
+</a>
+
+<a href="#courses">Courses</a>
+
+<a href="#suggestions">Suggestions</a>
+
+<a href="#contact">Contact</a>
+
+</div>
+
+</div>
+
+<!-- HERO -->
+
+<div class="hero-content">
+
+<h1>Training Courses</h1>
+
+<p>
+
+Enhancing Practical Skills Through Professional Learning & Training Programs
+
+</p>
+
+<div class="animated-text">
+
+<span>Professional Legal & Skill Based Training</span>
+
+<span>Build Your Communication & Legal Skills</span>
+
+<span>Practical Learning Through Structured Courses</span>
+
+<span>Learn • Grow • Build Your Future</span>
+
+</div>
+
+</div>
+
+</header>
+
+<!-- COURSES -->
+
+<section id="courses" class="reveal">
+
+<h2>Courses We Provide</h2>
+
+<p>
+
+JurisNova Academy offers practical skill-based training courses designed to help students improve communication, legal knowledge, drafting abilities, research skills, and professional confidence.
+
+</p>
+
+<div class="course-grid">
+
+<div class="course-box">
+
+<h3>English Speaking & Learning</h3>
+
+<p>
+
+Develop communication skills, vocabulary enhancement, public speaking confidence, and professional English conversation abilities.
+
+</p>
+
+</div>
+
+<div class="course-box">
+
+<h3>Basic French Speaking & Learning Training Course</h3>
+
+<p>
+
+Learn basic French communication, greetings, sentence formation, pronunciation, and conversational skills for beginners.
+
+</p>
+
+</div>
+
+<div class="course-box">
+
+<h3>Legal Research & Writing</h3>
+
+<p>
+
+Gain practical exposure to legal research methodologies, citation formats, legal analysis, and structured legal writing techniques.
+
+</p>
+
+</div>
+
+<div class="course-box">
+
+<h3>Blog Writing & Publishing</h3>
+
+<p>
+
+Learn content creation, article writing, legal blogging techniques, formatting, and publishing methods for online platforms.
+
+</p>
+
+</div>
+
+<div class="course-box">
+
+<h3>Contract Drafting Essentials</h3>
+
+<p>
+
+Understand the fundamentals of drafting agreements, clauses, legal notices, and commercial contracts.
+
+</p>
+
+</div>
+
+<div class="course-box">
+
+<h3>Moot Court Training, Competition & Certification</h3>
+
+<p>
+
+Practical training sessions focused on memorial drafting, oral arguments, courtroom etiquette, and moot court competitions.
+
+</p>
+
+</div>
+
+<div class="course-box">
+
+<h3>Intellectual Property Basic Training & Trademark Filing Course</h3>
+
+<p>
+
+Introduction to intellectual property rights, trademarks, copyrights, filing procedures, and practical basics of IP law.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SUGGESTIONS -->
+
+<section id="suggestions" class="reveal">
+
+<h2>Suggest Any Other Course</h2>
+
+<p>
+
+Students may suggest additional courses or training programs they would like JurisNova Academy to introduce in the future.
+
+</p>
+
+<a
+href="https://docs.google.com/forms/d/e/1FAIpQLSfxCqLNthuWN-zbvNzvqfwKja57bh8ivh8jMWi0DIb1FQVfJQ/viewform?usp=dialog"
+target="_blank"
+class="suggestion-btn">
+
+Open Suggestion Form
+
+</a>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact" class="reveal">
+
+<h2>Contact</h2>
+
+<p>
+
+For training programs, internships, legal education initiatives, and course-related queries, students may reach out through the following contact details.
+
+</p>
+
+<p>
+
+<strong>Email:</strong>
+jurisnovaacademy@gmail.com
+
+</p>
+
+<p>
+
+<strong>Contact Number:</strong>
++91 9773663370
+
+</p>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+© 2026 JurisNova Academy | All Rights Reserved
+
+</footer>
+
+<script>
+
+/* =========================
+MOBILE MENU
+========================= */
+
+const menuBtn =
+document.querySelector(".menu-toggle");
+
+const menu =
+document.getElementById("menu");
+
+menuBtn.onclick = function(e){
+
+    e.stopPropagation();
+
+    menu.classList.toggle("active");
+};
+
+/* CLOSE MENU */
+
+document.querySelectorAll(".menu a")
+.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        menu.classList.remove("active");
+
+    });
+
+});
+
+/* OUTSIDE CLICK */
+
+document.addEventListener("click", function(e){
+
+    if(
+        !menu.contains(e.target)
+        &&
+        !menuBtn.contains(e.target)
+    ){
+
+        menu.classList.remove("active");
+
+    }
+
+});
+
+/* =========================
+REVEAL EFFECT
+========================= */
+
+const reveals =
+document.querySelectorAll(".reveal");
+
+function revealSections(){
+
+    reveals.forEach(section => {
+
+        const top =
+        section.getBoundingClientRect().top;
+
+        const windowHeight =
+        window.innerHeight;
+
+        if(top < windowHeight - 100){
+
+            section.classList.add("active");
+        }
+
+    });
+
+}
+
+window.addEventListener(
+    "scroll",
+    revealSections
+);
+
+revealSections();
+
+</script>
+
+</body>
+
+</html>
