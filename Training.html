@@ -4,6 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>JurisNova Academy | Training Courses</title>
@@ -488,10 +489,11 @@ COURSE BOX
 }
 
 /* =========================
-BUTTON
+BUTTONS
 ========================= */
 
-.suggestion-btn{
+.suggestion-btn,
+.enroll-btn{
 
     display:inline-flex;
 
@@ -513,11 +515,40 @@ BUTTON
     transition:0.3s ease;
 }
 
-.suggestion-btn:hover{
+.suggestion-btn:hover,
+.enroll-btn:hover{
 
     background:#071a3b;
 
     transform:scale(1.03);
+}
+
+/* =========================
+ENROLLMENT BOX
+========================= */
+
+.enrollment-box{
+
+    margin-top:40px;
+
+    background:#f4f7ff;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    border-left:5px solid #0b2c5f;
+
+    text-align:center;
+}
+
+.enrollment-box h3{
+
+    color:#0b2c5f;
+
+    font-size:32px;
+
+    margin-bottom:15px;
 }
 
 /* =========================
@@ -580,7 +611,6 @@ MOBILE
 @media(max-width:768px){
 
 .navbar{
-
     padding:0 18px;
 }
 
@@ -631,7 +661,6 @@ MOBILE
 }
 
 .hero-content{
-
     width:95%;
 }
 
@@ -643,12 +672,10 @@ MOBILE
 }
 
 .hero-content p{
-
     font-size:18px;
 }
 
 .animated-text{
-
     height:80px;
 }
 
@@ -667,33 +694,36 @@ section{
 }
 
 h2{
-
     font-size:30px;
 }
 
 p{
-
     font-size:17px;
 }
 
 .course-grid{
-
     grid-template-columns:1fr;
 }
 
 .course-box{
-
     padding:24px;
 }
 
 .course-box h3{
-
     font-size:24px;
 }
 
-.suggestion-btn{
-
+.suggestion-btn,
+.enroll-btn{
     width:100%;
+}
+
+.enrollment-box{
+    padding:25px 20px;
+}
+
+.enrollment-box h3{
+    font-size:26px;
 }
 
 }
@@ -773,11 +803,17 @@ section{
 Home
 </a>
 
-<a href="#courses">Courses</a>
+<a href="#courses">
+Courses
+</a>
 
-<a href="#suggestions">Suggestions</a>
+<a href="#suggestions">
+Suggestions
+</a>
 
-<a href="#contact">Contact</a>
+<a href="#contact">
+Contact
+</a>
 
 </div>
 
@@ -911,6 +947,29 @@ Introduction to intellectual property rights, trademarks, copyrights, filing pro
 
 </div>
 
+<!-- ENROLLMENT SECTION -->
+
+<div class="enrollment-box">
+
+<h3>Course Enrolment</h3>
+
+<p>
+
+Students interested in enrolling for training programs and practical learning courses offered by JurisNova Academy may complete the official enrolment form through the link provided below.
+
+</p>
+
+<a
+href="https://docs.google.com/forms/d/e/1FAIpQLSey0tBxo6vIiElK45b2FGtL-mNo2tYyEO6zMpWVYnHstFDOug/viewform?usp=dialog"
+target="_blank"
+class="enroll-btn">
+
+Enroll for Courses
+
+</a>
+
+</div>
+
 </section>
 
 <!-- SUGGESTIONS -->
@@ -974,9 +1033,7 @@ jurisnovaacademy@gmail.com
 
 <script>
 
-/* =========================
-MOBILE MENU
-========================= */
+/* MOBILE MENU */
 
 const menuBtn =
 document.querySelector(".menu-toggle");
@@ -1020,9 +1077,7 @@ document.addEventListener("click", function(e){
 
 });
 
-/* =========================
-REVEAL EFFECT
-========================= */
+/* REVEAL EFFECT */
 
 const reveals =
 document.querySelectorAll(".reveal");
