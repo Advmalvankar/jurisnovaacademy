@@ -1,179 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>JurisNova Academy</title>
 
-<link rel="icon" type="image/png" href="/favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="favicon.png">
+
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* GLOBAL */
-body {
-    margin: 0;
-    font-family: 'EB Garamond', serif;
-    background: #f9fbff;
-    color: #1a1a1a;
-    scroll-behavior: smooth;
-    line-height: 1.7;
-    overflow-x: hidden;
+/* =========================
+GLOBAL STYLES
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* HEADER */
-header {
-    position: relative;
-    height: 420px;
-    background: url("Homepage.png") center/cover no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
+html{
+    scroll-behavior:smooth;
 }
 
-header::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.65);
+body{
+    font-family:'EB Garamond', serif;
+    background:#f5f7fc;
+    color:#1b1b1b;
+    line-height:1.8;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
 }
 
-/* HEADER TEXT */
-header h1 {
-    font-size: 48px;
-    animation: fadeDown 1s ease;
-    position: relative;
-    transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+img{
+    max-width:100%;
+    height:auto;
 }
 
-header p {
-    animation: fadeUp 1.2s ease;
-    position: relative;
-    transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+a,
+button{
+    -webkit-tap-highlight-color:transparent;
 }
 
-header.menu-open h1,
-header.menu-open p {
-    opacity: 0;
+/* =========================
+LOADER
+========================= */
+
+#loader{
+    position:fixed;
+    inset:0;
+    background:#081d45;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-size:32px;
+    letter-spacing:2px;
+    z-index:99999;
+    transition:0.5s ease;
 }
 
-header.menu-open {
-    background: #0b2c5f !important;
+/* =========================
+BACKGROUND SHAPES
+========================= */
+
+.bg-shape{
+    position:fixed;
+    border-radius:50%;
+    background:rgba(11,44,95,0.06);
+    z-index:-1;
+    animation:float 10s infinite ease-in-out;
 }
 
-@keyframes fadeDown {
-    from {opacity:0; transform: translateY(-30px);}
-    to {opacity:1; transform: translateY(0);}
+.shape1{
+    width:240px;
+    height:240px;
+    top:10%;
+    left:-100px;
 }
 
-@keyframes fadeUp {
-    from {opacity:0; transform: translateY(30px);}
-    to {opacity:1; transform: translateY(0);}
+.shape2{
+    width:180px;
+    height:180px;
+    bottom:10%;
+    right:-80px;
 }
 
-/* LOGO */
-.logo {
-    position: absolute;
-    top: 20px;
-    left: 20px;
+@keyframes float{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-25px);
+    }
 }
 
-.logo img {
-    height: 60px;
-    transition: 0.3s;
+/* =========================
+HEADER
+========================= */
+
+header{
+    position:relative;
+    min-height:100vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.60), rgba(0,0,0,0.70)),
+    url("Homepage.png") center/cover no-repeat;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    overflow:hidden;
 }
 
-.logo img:hover {
-    transform: rotate(-5deg) scale(1.05);
+/* =========================
+LOGO
+========================= */
+
+.logo{
+    position:absolute;
+    top:25px;
+    left:25px;
+    z-index:1002;
 }
 
-/* NAV */
-.nav-menu {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+.logo img{
+    height:65px;
+    transition:0.4s ease;
 }
 
-.nav-menu a {
-    margin: 5px;
-    padding: 8px 14px;
-    background: rgba(0,0,0,0.6);
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: 600;
-    transition: 0.3s;
+.logo img:hover{
+    transform:scale(1.05) rotate(-3deg);
 }
 
-.nav-menu a:hover {
-    background: white;
-    color: black;
+/* =========================
+MENU BUTTON
+========================= */
+
+.menu-toggle{
+    position:absolute;
+    top:25px;
+    right:25px;
+
+    background:none;
+    border:none;
+
+    color:white;
+
+    font-size:30px;
+
+    cursor:pointer;
+
+    z-index:1002;
+
+    display:none;
 }
 
-/* HAMBURGER */
-.menu-toggle {
-    display: none;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 26px;
-    background: none;
-    border: none;
-    color: white;
-    z-index: 1001;
-    cursor: pointer;
+/* =========================
+NAVIGATION
+========================= */
+
+.nav-menu{
+    position:absolute;
+    top:25px;
+    right:25px;
+
+    display:flex;
+    gap:10px;
+
+    z-index:1000;
 }
 
-/* HERO CONTENT */
+.nav-menu a{
+
+    text-decoration:none;
+    color:white;
+
+    padding:10px 18px;
+
+    border-radius:8px;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(10px);
+
+    transition:0.3s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active-link{
+    background:white;
+    color:#081d45;
+}
+
+/* =========================
+HERO CONTENT
+========================= */
+
 .hero-content{
-    position: relative;
-    z-index: 2;
+    width:90%;
+    max-width:900px;
+    position:relative;
+    z-index:2;
 }
 
-/* ANIMATED TEXT */
+.hero-content h1{
+    color:white;
+    font-size:72px;
+    margin-bottom:20px;
+    animation:fadeDown 1s ease;
+}
+
+.hero-content p{
+    color:#f2f2f2;
+    font-size:22px;
+}
+
+/* =========================
+ANIMATED TEXT
+========================= */
+
 .animated-text{
-    position: relative;
-    height: 40px;
-    overflow: hidden;
-    margin-top: 15px;
+    position:relative;
+    height:50px;
+    overflow:hidden;
+    margin-top:20px;
 }
 
-/* TEXT SLIDES */
 .animated-text span{
 
-    position: absolute;
-    width: 100%;
-    left: 0;
+    position:absolute;
 
-    opacity: 0;
+    width:100%;
+    left:0;
 
-    animation: rotateText 16s infinite;
+    color:white;
 
-    font-size: 22px;
-    font-weight: 500;
+    opacity:0;
+
+    font-size:24px;
+
+    animation:rotateText 16s infinite;
 }
 
-/* DELAYS */
 .animated-text span:nth-child(1){
-    animation-delay: 0s;
+    animation-delay:0s;
 }
 
 .animated-text span:nth-child(2){
-    animation-delay: 4s;
+    animation-delay:4s;
 }
 
 .animated-text span:nth-child(3){
-    animation-delay: 8s;
+    animation-delay:8s;
 }
 
 .animated-text span:nth-child(4){
-    animation-delay: 12s;
+    animation-delay:12s;
 }
 
-/* ANIMATION */
-@keyframes rotateText {
+@keyframes rotateText{
 
     0%{
         opacity:0;
@@ -200,376 +296,993 @@ header.menu-open {
     }
 }
 
-/* SECTION */
-section {
-    max-width: 1000px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background: white;
-    border-radius: 10px;
-    transition: 0.3s;
-    scroll-margin-top: 80px;
+@keyframes fadeDown{
+
+    from{
+        opacity:0;
+        transform:translateY(-30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
-section:hover {
-    transform: translateY(-5px);
+/* =========================
+SECTION
+========================= */
+
+section{
+
+    width:90%;
+    max-width:1100px;
+
+    margin:40px auto;
+
+    padding:40px;
+
+    background:white;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.05);
+
+    transition:0.4s ease;
+
+    scroll-margin-top:100px;
 }
 
-h2 {
-    color: #0b2c5f;
-    border-bottom: 2px solid #eee;
+section:hover{
+    transform:translateY(-5px);
 }
 
-/* Cources */
-.Cources {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-    gap: 20px;
+h2{
+    color:#0b2c5f;
+    font-size:40px;
+    margin-bottom:20px;
+    border-bottom:2px solid #eee;
+    padding-bottom:10px;
 }
 
-.service-box {
-    background: #f4f7ff;
-    padding: 18px;
-    border-radius: 8px;
-    border-left: 4px solid #0b2c5f;
-    transition: 0.3s;
+p{
+    font-size:18px;
+    margin-bottom:16px;
 }
 
-.service-box:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+/* =========================
+REVEAL
+========================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(60px);
+    transition:1s ease;
 }
 
-/* BUTTON */
-.btn {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 22px;
-    background: #0b2c5f;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: 0.3s;
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
 }
 
-.btn:hover {
-    transform: scale(1.05);
-    background: #061a3a;
+/* =========================
+COURSES GRID
+========================= */
+
+.Cources,
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
 }
 
-/* FOUNDER */
-#founder a {
-    text-decoration: none;
-    color: #0b2c5f;
-    font-weight: 600;
+/* =========================
+SERVICE BOX
+========================= */
+
+.service-box{
+
+    position:relative;
+
+    background:#f4f7ff;
+
+    padding:25px;
+
+    border-radius:16px;
+
+    border-left:5px solid #0b2c5f;
+
+    overflow:hidden;
+
+    transition:0.4s ease;
 }
 
-#founder a:hover {
-    text-decoration: underline;
+.service-box:hover{
+    transform:translateY(-8px);
+    box-shadow:0 12px 30px rgba(0,0,0,0.08);
 }
 
-/* MOBILE MENU */
-@media (max-width: 768px) {
+.service-box::before{
 
-.hero-content{
-    width: 90%;
-    margin: auto;
-    padding: 0 10px;
+    content:"";
+
+    position:absolute;
+
+    width:160%;
+    height:160%;
+
+    background:
+    linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.45),
+        transparent
+    );
+
+    top:-100%;
+    left:-100%;
+
+    transform:rotate(25deg);
+
+    transition:0.8s;
+}
+
+.service-box:hover::before{
+    top:100%;
+    left:100%;
+}
+
+/* =========================
+BUTTONS
+========================= */
+
+.btn{
+
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:14px 24px;
+
+    margin-top:15px;
+
+    background:#0b2c5f;
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:10px;
+
+    transition:0.3s ease;
+}
+
+.btn:hover{
+    background:#071a3b;
+    transform:scale(1.03);
+}
+
+/* =========================
+STATS
+========================= */
+
+.stat-box{
+    text-align:center;
+    background:#f4f7ff;
+    padding:30px;
+    border-radius:16px;
+}
+
+.stat-box h3{
+    font-size:48px;
+    color:#0b2c5f;
+}
+
+/* =========================
+TESTIMONIALS
+========================= */
+
+.testimonial-slider{
+    position:relative;
+    min-height:150px;
+}
+
+.testimonial{
+    display:none;
+    animation:fadeTestimonial 0.8s ease;
+}
+
+.testimonial.active{
+    display:block;
+}
+
+@keyframes fadeTestimonial{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+FOUNDER LINK
+========================= */
+
+#founder a{
+    text-decoration:none;
+    color:#0b2c5f;
+    font-weight:600;
+}
+
+#founder a:hover{
+    text-decoration:underline;
+}
+
+/* =========================
+FOOTER
+========================= */
+
+footer{
+    background:#081d45;
+    color:white;
+    text-align:center;
+    padding:30px 20px;
+    margin-top:50px;
+}
+
+/* =========================
+BACK TO TOP
+========================= */
+
+#topBtn{
+
+    position:fixed;
+
+    bottom:25px;
+    right:25px;
+
+    background:#0b2c5f;
+    color:white;
+
+    border:none;
+
+    padding:14px 18px;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    display:none;
+
+    z-index:999;
+
+    transition:0.3s ease;
+}
+
+#topBtn:hover{
+    background:#071a3b;
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media(max-width:768px){
+
+header{
+    padding:20px;
 }
 
 .hero-content h1{
-    font-size: 34px;
-    line-height: 1.2;
+    font-size:42px;
+    line-height:1.2;
+}
+
+.hero-content p{
+    font-size:18px;
 }
 
 .animated-text{
-    height: 70px;
+    height:80px;
 }
 
 .animated-text span{
-    font-size: 18px;
-    line-height: 1.4;
-    padding: 0 10px;
-}
-    .menu-toggle {
-        display: block;
-    }
-
-   .nav-menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 100%;
-    height: 100vh;
-
-    /* GLASS BACKGROUND */
-    background: rgba(20, 30, 60, 0.35);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-
-    /* subtle glass border */
-    border-left: 1px solid rgba(255, 255, 255, 0.15);
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    transition: right 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-    z-index: 1000;
-}
-       
-    .nav-menu.active {
-        right: 0;
-    }
-
-    .nav-menu a {
-        display: block;
-        padding: 14px;
-        font-size: 20px;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.4s ease;
-    }
-
-    .nav-menu.active a {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    header h1 {
-        font-size: 32px;
-    }
+    font-size:18px;
+    line-height:1.5;
 }
 
-/* BACK TO TOP */
-#topBtn {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    display: none;
-    background: #0b2c5f;
-    color: white;
-    border: none;
-    padding: 10px 18px;
-    font-size: 14px;
-    border-radius: 25px;
-    cursor: pointer;
-    z-index: 999;
-    transition: all 0.3s ease;
+.logo{
+    top:18px;
+    left:18px;
 }
 
-#topBtn:hover {
-    background: #061a3a;
+.logo img{
+    height:52px;
 }
 
-/* FOOTER */
-footer {
-    text-align: center;
-    padding: 20px 10px;
-    background: #0b2c5f;
-    color: #ffffff;
-    margin-top: 40px;
+.menu-toggle{
+    display:block;
+}
+
+.nav-menu{
+
+    position:fixed;
+
+    top:0;
+    right:-100%;
+
+    width:100%;
+    height:100vh;
+
+    background:rgba(8,20,45,0.92);
+
+    backdrop-filter:blur(15px);
+
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    transition:0.4s ease;
+}
+
+.nav-menu.active{
+    right:0;
+}
+
+.nav-menu a{
+
+    width:85%;
+
+    text-align:center;
+
+    margin:8px 0;
+
+    padding:15px;
+
+    font-size:18px;
+}
+
+section{
+    width:calc(100% - 24px);
+    padding:28px 20px;
+}
+
+h2{
+    font-size:32px;
+}
+
+p{
+    font-size:17px;
+}
+
+.Cources,
+.stats{
+    grid-template-columns:1fr;
+}
+
+.btn{
+    width:100%;
+}
+
+}
+
+@media(max-width:480px){
+
+.hero-content h1{
+    font-size:34px;
+}
+
+.animated-text span{
+    font-size:16px;
+}
+
+h2{
+    font-size:28px;
+}
+
+p{
+    font-size:16px;
+}
+
+section{
+    padding:24px 18px;
+}
+
+}
+
+/* SAFE AREA */
+
+body{
+    padding-bottom:env(safe-area-inset-bottom);
 }
 
 </style>
+
 </head>
 
 <body>
 
-<header>
+<!-- LOADER -->
+
+<div id="loader">
+    JurisNova Academy
+</div>
+
+<!-- BACKGROUND SHAPES -->
+
+<div class="bg-shape shape1"></div>
+<div class="bg-shape shape2"></div>
+
+<!-- HEADER -->
+
+<header id="home">
 
 <div class="logo">
-    <a href="#opportunities">
-        <img src="logo.png">
-    </a>
+<a href="#home">
+<img src="logo.png" alt="JurisNova Academy Logo">
+</a>
 </div>
 
 <button class="menu-toggle">☰</button>
 
+<!-- NAVIGATION -->
+
 <div class="nav-menu" id="menu">
-    <a href="#home">Home</a>
-    <a href="#opportunities">Opportunities</a>
-    <a href="#Cources">Cources</a>
-     <a href="#Legal-Help">Legal-Help</a>
-     <a href="#Free-Aid">Free-Aid</a>
-    <a href="#about">About</a>
-    <a href="#social">Social</a>
-    <a href="#founder">Founder</a>
-    <a href="#contact">Contact</a>
+
+<a href="#home">Home</a>
+<a href="#opportunities">Opportunities</a>
+<a href="#Cources">Cources</a>
+<a href="#legal-help">Legal Assistance</a>
+<a href="#free-aid">Free Legal Aid</a>
+<a href="#impact">Impact</a>
+<a href="#testimonials">Testimonials</a>
+<a href="#about">About</a>
+<a href="#social">Social</a>
+<a href="#founder">Founder</a>
+<a href="#contact">Contact</a>
+
 </div>
+
+<!-- HERO -->
 
 <div class="hero-content">
 
-    <h1>JurisNova Academy</h1>
+<h1>JurisNova Academy</h1>
 
-    <div class="animated-text">
+<p>
+Empowering aspiring legal professionals through practical legal education,
+internships, mentorship, and skill-based training.
+</p>
 
-        <span>Illuminating the Law. Advancing Justice.</span>
+<div class="animated-text">
 
-        <span>Join Our Programs & Upgrade Your Skills</span>
+<span>Illuminating the Law. Advancing Justice.</span>
 
-        <span>Build Your Legal Career</span>
+<span>Join Our Programs & Upgrade Your Skills</span>
 
-        <span>Internships • Courses • Certifications</span>
+<span>Build Your Legal Career</span>
 
-    </div>
+<span>Internships • Courses • Certifications</span>
+
+</div>
 
 </div>
 
 </header>
 
-<!-- YOUR ORIGINAL SECTIONS (UNCHANGED) -->
+<!-- OPPORTUNITIES -->
 
 <section id="opportunities" class="reveal">
+
 <h2>Opportunities</h2>
-<p><strong>Legal Intern (Remote – Full-Time)</strong></p>
-<p>We are offering internship and training opportunities for law students looking to gain practical experience in the legal field.</p>
-<p>As a Legal Intern, you will coordinate with fellow interns, review their work, and assist them with queries related to assigned tasks. You will also play an active role in conducting live sessions, where you will explain tasks and concepts using presentations (PPTs).</p>
-<p>In addition, you will support the legal team through research, drafting, and case analysis. This role is designed to develop your leadership, communication, and legal skills through hands-on training and mentorship.</p>
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSdHDX3o3vNQKtDOv8wZIfI4n-rvBG5Mm2QwatDj6qOu3SCRYQ/viewform?usp=sharing" 
-     target="_blank" 
-     class="btn">
-     Apply for Internship
-  </a>
+
+<p>
+<strong>Legal Intern (Remote – Full-Time)</strong>
+</p>
+
+<p>
+We are offering internship and training opportunities for law students looking to gain practical experience in the legal field.
+</p>
+
+<p>
+As a Legal Intern, you will coordinate with fellow interns, review their work, and assist them with queries related to assigned tasks. You will also play an active role in conducting live sessions, where you will explain tasks and concepts using presentations (PPTs).
+</p>
+
+<p>
+In addition, you will support the legal team through research, drafting, and case analysis. This role is designed to develop your leadership, communication, and legal skills through hands-on training and mentorship.
+</p>
+
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSdHDX3o3vNQKtDOv8wZIfI4n-rvBG5Mm2QwatDj6qOu3SCRYQ/viewform?usp=sharing"
+target="_blank"
+class="btn">
+Apply for Internship
+</a>
+
 </section>
+
+<!-- COURSES -->
 
 <section id="Cources" class="reveal">
+
 <h2>Cources We Provide</h2>
+
 <div class="Cources">
+
 <div class="service-box">
+
 <h3>Internship Programs</h3>
-<p>We offer structured internship programs designed to provide practical exposure to legal research, drafting, and case analysis. Interns will work on real-time assignments, collaborate with peers, and receive guidance from experienced professionals.</p> 
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSdHDX3o3vNQKtDOv8wZIfI4n-rvBG5Mm2QwatDj6qOu3SCRYQ/viewform?usp=sharing" target="_blank">Apply here</a>
+
+<p>
+We offer structured internship programs designed to provide practical exposure to legal research, drafting, and case analysis. Interns will work on real-time assignments, collaborate with peers, and receive guidance from experienced professionals.
+</p>
+
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSdHDX3o3vNQKtDOv8wZIfI4n-rvBG5Mm2QwatDj6qOu3SCRYQ/viewform?usp=sharing"
+target="_blank"
+class="btn">
+Apply Here
+</a>
+
 </div>
-<div class="service-box"><h3>Training Courses</h3><p>Our training courses focus on building core legal skills such as contract drafting, legal writing, research methodologies, and practical application of laws through curated modules.</p></div>
-<div class="service-box"><h3>Certification</h3><p>Participants will receive certificates upon successful completion of internships and training programs, recognizing their skills, performance, and practical learning.</p></div>
+
+<div class="service-box">
+
+<h3>Training Courses</h3>
+
+<p>
+Our training courses focus on building core legal skills such as contract drafting, legal writing, research methodologies, and practical application of laws through curated modules.
+</p>
+
 </div>
+
+<div class="service-box">
+
+<h3>Certification</h3>
+
+<p>
+Participants will receive certificates upon successful completion of internships and training programs, recognizing their skills, performance, and practical learning.
+</p>
+
+</div>
+
+</div>
+
 </section>
 
+<!-- LEGAL HELP -->
+
 <section id="legal-help" class="reveal">
+
 <h2>Legal Assistance</h2>
+
 <p>
 JurisNova Academy provides professional legal guidance and preliminary consultation support relating to various legal matters including civil, criminal, family, property, consumer, contractual, and corporate issues.
 </p>
-<div class="services">
+
 <div class="service-box">
+
 <h3>Legal Consultation</h3>
+
 <p>
 Seek preliminary legal advice, documentation assistance, and guidance regarding legal rights, remedies, and legal procedures.
 </p>
+
 <a href="https://advmalvankar.github.io/akshaymalvankar/consultation.html"
 target="_blank"
 class="btn">
 Book Consultation
 </a>
+
 </div>
-</div>
+
 </section>
 
+<!-- FREE LEGAL AID -->
+
 <section id="free-aid" class="reveal">
+
 <h2>Free Legal Aid</h2>
+
 <p>
 As part of our commitment towards access to justice and legal awareness, JurisNova Academy supports individuals requiring basic legal guidance and assistance.
 </p>
-<div class="services">
+
 <div class="service-box">
+
 <h3>Request Free Legal Aid</h3>
+
 <p>
 Basic legal guidance and awareness support for individuals who may not have access to proper legal resources or assistance.
 </p>
+
 <a href="https://advmalvankar.github.io/akshaymalvankar/consultation.html"
 target="_blank"
 class="btn">
 Request Assistance
 </a>
+
 </div>
-</div>
+
 </section>
+
+<!-- IMPACT -->
+
+<section id="impact" class="reveal">
+
+<h2>Our Impact</h2>
+
+<div class="stats">
+
+<div class="stat-box">
+<h3 class="counter" data-target="500">0</h3>
+<p>Students Trained</p>
+</div>
+
+<div class="stat-box">
+<h3 class="counter" data-target="120">0</h3>
+<p>Internships Completed</p>
+</div>
+
+<div class="stat-box">
+<h3 class="counter" data-target="50">0</h3>
+<p>Live Sessions Conducted</p>
+</div>
+
+<div class="stat-box">
+<h3 class="counter" data-target="15">0</h3>
+<p>Skill Programs</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- TESTIMONIALS -->
+
+<section id="testimonials" class="reveal">
+
+<h2>Student Testimonials</h2>
+
+<div class="testimonial-slider">
+
+<div class="testimonial active">
+
+<p>
+"The internship helped me improve my drafting and legal research skills tremendously."
+</p>
+
+<strong>— Law Student</strong>
+
+</div>
+
+<div class="testimonial">
+
+<p>
+"JurisNova Academy gave me practical exposure beyond classroom learning."
+</p>
+
+<strong>— Legal Intern</strong>
+
+</div>
+
+<div class="testimonial">
+
+<p>
+"The live sessions and mentorship were extremely insightful."
+</p>
+
+<strong>— Participant</strong>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
 
 <section id="about" class="reveal">
+
 <h2>About</h2>
-<p>JurisNova Academy is a dedicated platform for law students seeking meaningful, skill-oriented online internship opportunities.</p>
-<p>We aim to bridge the gap between legal education and practical exposure by providing aspiring legal professionals with a space to develop core competencies such as legal research, drafting, case analysis, and critical thinking.</p>
-<p>Through structured training, real-world assignments, and guided learning, JurisNova Academy empowers students to enhance their practical knowledge and build industry-ready skills—regardless of location.</p>
-<p>Our mission is to make legal learning more accessible, practical, and impactful, helping students grow into confident and competent professionals in the legal field.</p>
+
+<p>
+JurisNova Academy is a dedicated platform for law students seeking meaningful, skill-oriented online internship opportunities.
+</p>
+
+<p>
+We aim to bridge the gap between legal education and practical exposure by providing aspiring legal professionals with a space to develop core competencies such as legal research, drafting, case analysis, and critical thinking.
+</p>
+
+<p>
+Through structured training, real-world assignments, and guided learning, JurisNova Academy empowers students to enhance their practical knowledge and build industry-ready skills—regardless of location.
+</p>
+
+<p>
+Our mission is to make legal learning more accessible, practical, and impactful, helping students grow into confident and competent professionals in the legal field.
+</p>
+
 </section>
+
+<!-- SOCIAL -->
 
 <section id="social" class="reveal">
+
 <h2>Social Media</h2>
-<p><a href="https://www.instagram.com/jurisnovaacademy/">Instagram</a></p>
-<p><a href="https://www.linkedin.com/company/jurisnovaacademy/" target="_blank">LinkedIn Page</a></p>
+
+<p>
+<a href="https://www.instagram.com/jurisnovaacademy/" target="_blank">
+Instagram
+</a>
+</p>
+
+<p>
+<a href="https://www.linkedin.com/company/jurisnovaacademy/" target="_blank">
+LinkedIn Page
+</a>
+</p>
+
 </section>
 
+<!-- FOUNDER -->
+
 <section id="founder" class="reveal">
+
 <h2>Founder</h2>
+
 <p>
 <a href="https://advmalvankar.github.io/akshaymalvankar/" target="_blank">
 Adv. Akshay Devdatta Malvankar
 </a>
+</p>
+
 <p>
-Founder of JurisNova Academy, dedicated to providing practical legal education 
-and skill-based training to law students across India.
+Founder of JurisNova Academy, dedicated to providing practical legal education and skill-based training to law students across India.
 </p>
-</p>
+
 </section>
 
+<!-- CONTACT -->
+
 <section id="contact" class="reveal">
+
 <h2>Contact</h2>
+
 <p>Email: jurisnovaacademy@gmail.com</p>
+
 <p>+91 9773663370</p>
+
 </section>
+
+<!-- FOOTER -->
 
 <footer>
 © 2026 JurisNova Academy | All Rights Reserved
 </footer>
 
-<button id="topBtn">Back to Top ↑</button>
+<!-- BACK TO TOP -->
+
+<button id="topBtn">
+↑
+</button>
 
 <script>
 
-/* MENU SYSTEM (FIXED) */
+/* =========================
+MENU
+========================= */
+
 const menuBtn = document.querySelector(".menu-toggle");
 const menu = document.getElementById("menu");
-const header = document.querySelector("header");
 
-menuBtn.onclick = function (e) {
+menuBtn.onclick = function(e){
+
     e.stopPropagation();
+
     menu.classList.toggle("active");
-    header.classList.toggle("menu-open");
 };
 
-/* CLOSE ON LINK CLICK */
-document.querySelectorAll("#menu a").forEach(link => {
-    link.addEventListener("click", () => {
+/* CLOSE MENU */
+
+document.querySelectorAll(".nav-menu a").forEach(link=>{
+
+    link.addEventListener("click",()=>{
+
         menu.classList.remove("active");
-        header.classList.remove("menu-open");
+
     });
+
 });
 
-/* CLOSE ON OUTSIDE CLICK */
-document.addEventListener("click", function (e) {
-    if (!menu.contains(e.target) && !menuBtn.contains(e.target)) {
+/* OUTSIDE CLICK */
+
+document.addEventListener("click",(e)=>{
+
+    if(
+        !menu.contains(e.target)
+        &&
+        !menuBtn.contains(e.target)
+    ){
         menu.classList.remove("active");
-        header.classList.remove("menu-open");
     }
+
 });
 
+/* =========================
+REVEAL ANIMATION
+========================= */
 
-/* BACK TO TOP */
+const reveals = document.querySelectorAll(".reveal");
+
+function revealSections(){
+
+    reveals.forEach(section=>{
+
+        const top = section.getBoundingClientRect().top;
+
+        const windowHeight = window.innerHeight;
+
+        if(top < windowHeight - 100){
+            section.classList.add("active");
+        }
+
+    });
+
+}
+
+window.addEventListener("scroll", revealSections);
+
+revealSections();
+
+/* =========================
+ACTIVE NAVIGATION
+========================= */
+
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".nav-menu a");
+
+window.addEventListener("scroll", ()=>{
+
+    let current = "";
+
+    sections.forEach(section=>{
+
+        const sectionTop = section.offsetTop - 150;
+
+        if(pageYOffset >= sectionTop){
+            current = section.getAttribute("id");
+        }
+
+    });
+
+    navLinks.forEach(link=>{
+
+        link.classList.remove("active-link");
+
+        if(link.getAttribute("href").includes(current)){
+            link.classList.add("active-link");
+        }
+
+    });
+
+});
+
+/* =========================
+BACK TO TOP
+========================= */
+
 const topBtn = document.getElementById("topBtn");
 
-window.onscroll = function () {
-    if (document.documentElement.scrollTop > 200) {
+window.addEventListener("scroll", ()=>{
+
+    if(document.documentElement.scrollTop > 250){
         topBtn.style.display = "block";
-    } else {
+    }else{
         topBtn.style.display = "none";
     }
+
+});
+
+topBtn.onclick = ()=>{
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
 };
 
-topBtn.onclick = function () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-};
+/* =========================
+COUNTER ANIMATION
+========================= */
+
+const counters = document.querySelectorAll(".counter");
+
+counters.forEach(counter=>{
+
+    counter.innerText = "0";
+
+    const updateCounter = ()=>{
+
+        const target = +counter.getAttribute("data-target");
+
+        const current = +counter.innerText;
+
+        const increment = target / 100;
+
+        if(current < target){
+
+            counter.innerText =
+            `${Math.ceil(current + increment)}`;
+
+            setTimeout(updateCounter,20);
+
+        }else{
+
+            counter.innerText = target;
+
+        }
+
+    };
+
+    updateCounter();
+
+});
+
+/* =========================
+TESTIMONIAL SLIDER
+========================= */
+
+const testimonials =
+document.querySelectorAll(".testimonial");
+
+let testimonialIndex = 0;
+
+setInterval(()=>{
+
+    testimonials.forEach(testimonial=>{
+
+        testimonial.classList.remove("active");
+
+    });
+
+    testimonialIndex++;
+
+    if(testimonialIndex >= testimonials.length){
+        testimonialIndex = 0;
+    }
+
+    testimonials[testimonialIndex]
+    .classList.add("active");
+
+},4000);
+
+/* =========================
+LOADER
+========================= */
+
+window.addEventListener("load", ()=>{
+
+    const loader = document.getElementById("loader");
+
+    setTimeout(()=>{
+
+        loader.style.opacity = "0";
+
+        loader.style.pointerEvents = "none";
+
+        setTimeout(()=>{
+
+            loader.style.display = "none";
+
+        },500);
+
+    },1000);
+
+});
 
 </script>
 
