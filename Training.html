@@ -212,6 +212,8 @@ NAVBAR
     font-size:30px;
 
     cursor:pointer;
+
+    z-index:1001;
 }
 
 /* =========================
@@ -552,6 +554,48 @@ ENROLLMENT BOX
 }
 
 /* =========================
+BACK TO TOP BUTTON
+========================= */
+
+#topBtn{
+
+    position:fixed;
+
+    bottom:30px;
+    right:30px;
+
+    width:52px;
+    height:52px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#0b2c5f;
+
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    display:none;
+
+    z-index:9999;
+
+    transition:0.3s ease;
+
+    box-shadow:0 8px 20px rgba(0,0,0,0.18);
+}
+
+#topBtn:hover{
+
+    background:#071a3b;
+
+    transform:translateY(-4px) scale(1.06);
+}
+
+/* =========================
 FOOTER
 ========================= */
 
@@ -591,7 +635,7 @@ REVEAL EFFECT
 }
 
 /* =========================
-MOBILE
+TABLET
 ========================= */
 
 @media(max-width:900px){
@@ -606,7 +650,9 @@ MOBILE
 
 }
 
-/* MOBILE MENU */
+/* =========================
+MOBILE
+========================= */
 
 @media(max-width:768px){
 
@@ -726,9 +772,22 @@ p{
     font-size:26px;
 }
 
+#topBtn{
+
+    width:48px;
+    height:48px;
+
+    bottom:20px;
+    right:20px;
+
+    font-size:20px;
 }
 
-/* EXTRA SMALL */
+}
+
+/* =========================
+EXTRA SMALL
+========================= */
 
 @media(max-width:480px){
 
@@ -791,7 +850,7 @@ section{
 
 <!-- MENU BUTTON -->
 
-<button class="menu-toggle">
+<button class="menu-toggle" id="menuBtn">
 ☰
 </button>
 
@@ -1031,22 +1090,29 @@ jurisnovaacademy@gmail.com
 
 </footer>
 
+<!-- BACK TO TOP BUTTON -->
+
+<button id="topBtn">
+↑
+</button>
+
 <script>
 
 /* MOBILE MENU */
 
 const menuBtn =
-document.querySelector(".menu-toggle");
+document.getElementById("menuBtn");
 
 const menu =
 document.getElementById("menu");
 
-menuBtn.onclick = function(e){
+menuBtn.addEventListener("click", function(e){
 
     e.stopPropagation();
 
     menu.classList.toggle("active");
-};
+
+});
 
 /* CLOSE MENU */
 
@@ -1107,6 +1173,41 @@ window.addEventListener(
 );
 
 revealSections();
+
+/* BACK TO TOP */
+
+const topBtn =
+document.getElementById("topBtn");
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 300){
+
+        topBtn.style.display = "flex";
+
+        topBtn.style.justifyContent = "center";
+
+        topBtn.style.alignItems = "center";
+
+    }
+
+    else{
+
+        topBtn.style.display = "none";
+    }
+
+});
+
+topBtn.addEventListener("click", () => {
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+    });
+
+});
 
 </script>
 
