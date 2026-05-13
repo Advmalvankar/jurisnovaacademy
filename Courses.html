@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JurisNova Academy | Course Details</title>
+
+<link rel="icon" type="image/png" href="logo.png">
+
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'EB Garamond', serif;
+    background:#f5f7fc;
+    color:#1a1a1a;
+    line-height:1.8;
+    overflow-x:hidden;
+}
+
+/* =========================
+HEADER
+========================= */
+
+header{
+
+    background:
+    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.78)),
+    url("Opportunities.png") center/cover no-repeat;
+
+    min-height:75vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
+    padding:140px 20px 80px;
+}
+
+.hero h1{
+    color:white;
+    font-size:78px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    color:#f1f1f1;
+    font-size:28px;
+}
+
+/* =========================
+NAVBAR
+========================= */
+
+.navbar{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 35px;
+
+    background:rgba(0,0,0,0.28);
+
+    backdrop-filter:blur(12px);
+
+    z-index:9999;
+}
+
+.logo img{
+    height:72px;
+    border-radius:10px;
+}
+
+/* =========================
+MENU
+========================= */
+
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.nav-links a,
+.dropbtn{
+
+    background:rgba(255,255,255,0.14);
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:14px 24px;
+
+    border-radius:14px;
+
+    font-size:22px;
+
+    border:none;
+
+    cursor:pointer;
+
+    transition:0.3s ease;
+}
+
+.nav-links a:hover,
+.dropbtn:hover{
+
+    background:white;
+
+    color:#081d45;
+}
+
+/* =========================
+DROPDOWN
+========================= */
+
+.dropdown{
+    position:relative;
+}
+
+.dropdown-content{
+
+    display:none;
+
+    position:absolute;
+
+    top:72px;
+    right:0;
+
+    background:rgba(8,20,45,0.97);
+
+    min-width:320px;
+
+    border-radius:18px;
+
+    padding:14px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,0.25);
+
+    z-index:9999;
+}
+
+.dropdown-content a{
+
+    display:block;
+
+    margin-bottom:12px;
+
+    background:rgba(255,255,255,0.08);
+
+    padding:14px 18px;
+
+    border-radius:12px;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:20px;
+
+    transition:0.3s ease;
+}
+
+.dropdown-content a:hover{
+
+    background:white;
+
+    color:#081d45;
+}
+
+.dropdown-content a:last-child{
+    margin-bottom:0;
+}
+
+.dropdown.active .dropdown-content{
+    display:block;
+}
+
+/* =========================
+MOBILE MENU
+========================= */
+
+.menu-toggle{
+
+    display:none;
+
+    font-size:34px;
+
+    color:white;
+
+    background:none;
+
+    border:none;
+
+    cursor:pointer;
+}
+
+/* =========================
+SECTION
+========================= */
+
+section{
+
+    width:92%;
+
+    max-width:1200px;
+
+    margin:60px auto;
+
+    background:white;
+
+    padding:45px;
+
+    border-radius:28px;
+
+    box-shadow:0 12px 35px rgba(0,0,0,0.06);
+}
+
+.course-title{
+
+    color:#0b2c5f;
+
+    font-size:48px;
+
+    margin-bottom:25px;
+}
+
+.info-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+    gap:20px;
+
+    margin:35px 0;
+}
+
+.info-box{
+
+    background:#f4f7ff;
+
+    padding:24px;
+
+    border-radius:18px;
+
+    border-left:5px solid #0b2c5f;
+}
+
+.info-box h3{
+
+    color:#0b2c5f;
+
+    margin-bottom:10px;
+
+    font-size:24px;
+}
+
+.info-box p{
+    font-size:18px;
+}
+
+ul{
+    padding-left:25px;
+    margin-top:15px;
+}
+
+ul li{
+    margin-bottom:12px;
+    font-size:18px;
+}
+
+/* =========================
+BUTTON
+========================= */
+
+.enroll-btn{
+
+    display:inline-block;
+
+    margin-top:35px;
+
+    background:#0b2c5f;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:16px 34px;
+
+    border-radius:14px;
+
+    font-size:20px;
+
+    transition:0.3s ease;
+}
+
+.enroll-btn:hover{
+
+    background:#071a3b;
+
+    transform:translateY(-3px);
+}
+
+/* =========================
+FOOTER
+========================= */
+
+footer{
+
+    background:#081d45;
+
+    color:white;
+
+    text-align:center;
+
+    padding:35px 20px;
+
+    margin-top:70px;
+
+    font-size:18px;
+}
+
+/* =========================
+TOP BUTTON
+========================= */
+
+#topBtn{
+
+    position:fixed;
+
+    bottom:25px;
+    right:25px;
+
+    width:54px;
+    height:54px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#0b2c5f;
+
+    color:white;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    display:none;
+
+    z-index:99999;
+
+    transition:0.3s ease;
+}
+
+#topBtn:hover{
+
+    background:#071a3b;
+
+    transform:translateY(-5px);
+}
+
+/* =========================
+MOBILE RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+.hero h1{
+    font-size:52px;
+}
+
+.hero p{
+    font-size:22px;
+}
+
+.navbar{
+    padding:15px 18px;
+}
+
+.logo img{
+    height:58px;
+}
+
+.menu-toggle{
+    display:block;
+}
+
+.nav-links{
+
+    position:fixed;
+
+    top:85px;
+    right:-100%;
+
+    width:100%;
+
+    background:rgba(8,20,45,0.98);
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:35px 20px;
+
+    transition:0.4s ease;
+
+    z-index:9999;
+}
+
+.nav-links.active{
+    right:0;
+}
+
+.nav-links a,
+.dropbtn{
+
+    width:100%;
+
+    text-align:center;
+
+    font-size:22px;
+}
+
+.dropdown{
+    width:100%;
+}
+
+.dropdown-content{
+
+    position:relative;
+
+    top:12px;
+    right:0;
+
+    width:100%;
+
+    min-width:100%;
+
+    background:rgba(255,255,255,0.06);
+
+    box-shadow:none;
+}
+
+.dropdown-content a{
+    font-size:18px;
+}
+
+section{
+    padding:30px 22px;
+}
+
+.course-title{
+    font-size:36px;
+}
+
+.info-box h3{
+    font-size:22px;
+}
+
+.info-box p,
+ul li{
+    font-size:17px;
+}
+
+#topBtn{
+
+    width:48px;
+    height:48px;
+
+    font-size:20px;
+
+    right:18px;
+    bottom:18px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+<div class="logo">
+
+<a href="https://www.jurisnovaacademy.in/">
+
+<img src="logo.png" alt="JurisNova Academy Logo">
+
+</a>
+
+</div>
+
+<button class="menu-toggle" id="menuToggle">
+☰
+</button>
+
+<div class="nav-links" id="navLinks">
+
+<a href="index.html">Home</a>
+
+<div class="dropdown" id="dropdownMenu">
+
+<button class="dropbtn" id="courseBtn">
+Courses 
+</button>
+
+<div class="dropdown-content">
+
+<a href="#english">English Speaking & Learning</a>
+
+<a href="#french">French Speaking & Learning</a>
+
+<a href="#legal">Legal Research & Writing</a>
+
+<a href="#blog-writing">Blog Writing & Publishing</a>
+
+<a href="#contract">Contract Drafting Essentials</a>
+
+<a href="#moot-court">Moot Court Training</a>
+
+<a href="#ip">IP Training Course</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- HEADER -->
+
+<header>
+
+<div class="hero">
+
+<h1>Detailed Course Information</h1>
+
+<p>
+Professional Training Programs by JurisNova Academy
+</p>
+
+</div>
+
+</header>
+
+<!-- ENGLISH COURSE -->
+
+<section id="english">
+
+<h2 class="course-title">
+English Speaking & Learning
+</h2>
+
+<p>
+
+This course is designed for students, professionals, and beginners who wish to improve their spoken English, communication confidence, vocabulary, grammar usage, and public speaking abilities.
+
+</p>
+
+<div class="info-grid">
+
+<div class="info-box">
+<h3>Duration</h3>
+<p>6 Weeks Training Program</p>
+</div>
+
+<div class="info-box">
+<h3>Mode</h3>
+<p>Online Live Interactive Sessions</p>
+</div>
+
+<div class="info-box">
+<h3>Course Fee</h3>
+<p>₹1,499 Only</p>
+</div>
+
+<div class="info-box">
+<h3>Certification</h3>
+<p>Certificate of Completion Provided</p>
+</div>
+
+</div>
+
+<h3>What You Will Learn</h3>
+
+<ul>
+
+<li>English speaking practice sessions</li>
+<li>Vocabulary enhancement techniques</li>
+<li>Public speaking confidence building</li>
+<li>Professional communication methods</li>
+<li>Grammar and sentence correction</li>
+<li>Interview communication skills</li>
+
+</ul>
+
+<h3>Course Process</h3>
+
+<ul>
+
+<li>Weekly live sessions with practical interaction</li>
+<li>Assignments and speaking exercises</li>
+<li>Practice-based learning approach</li>
+<li>Continuous guidance and doubt solving</li>
+<li>Final assessment and certification</li>
+
+</ul>
+
+<h3>Benefits of This Course</h3>
+
+<ul>
+
+<li>Improved confidence while speaking</li>
+<li>Professional communication skills</li>
+<li>Better interview performance</li>
+<li>Enhanced academic and workplace communication</li>
+
+</ul>
+
+<a
+href="https://docs.google.com/forms/d/e/1FAIpQLSey0tBxo6vIiElK45b2FGtL-mNo2tYyEO6zMpWVYnHstFDOug/viewform?usp=dialog"
+target="_blank"
+class="enroll-btn">
+
+Enroll Now
+
+</a>
+
+</section>
+
+<!-- FRENCH COURSE -->
+
+<section id="french">
+
+<h2 class="course-title">
+French Speaking & Learning
+</h2>
+
+<p>
+
+This course is designed for beginners who wish to learn basic French communication skills, greetings, pronunciation, sentence formation, vocabulary building, and conversational speaking techniques.
+
+</p>
+
+<div class="info-grid">
+
+<div class="info-box">
+<h3>Duration</h3>
+<p>6 Weeks Beginner Program</p>
+</div>
+
+<div class="info-box">
+<h3>Mode</h3>
+<p>Online Interactive Sessions</p>
+</div>
+
+<div class="info-box">
+<h3>Course Fee</h3>
+<p>₹1,999 Only</p>
+</div>
+
+<div class="info-box">
+<h3>Certification</h3>
+<p>French Learning Certificate</p>
+</div>
+
+</div>
+
+<h3>What You Will Learn</h3>
+
+<ul>
+
+<li>Basic French communication skills</li>
+<li>French greetings and introductions</li>
+<li>Sentence formation and vocabulary building</li>
+<li>Pronunciation and conversational practice</li>
+<li>Everyday French speaking techniques</li>
+<li>Foundation level French learning</li>
+
+</ul>
+
+<a
+href="https://docs.google.com/forms/d/e/1FAIpQLSey0tBxo6vIiElK45b2FGtL-mNo2tYyEO6zMpWVYnHstFDOug/viewform?usp=dialog"
+target="_blank"
+class="enroll-btn">
+
+Enroll Now
+
+</a>
+
+</section>
+
+<!-- LEGAL COURSE -->
+
+<section id="legal">
+
+<h2 class="course-title">
+Legal Research & Writing
+</h2>
+
+<p>
+
+This practical training course focuses on developing strong legal research abilities, analytical writing techniques, citation methods, and professional drafting skills required in legal practice and academics.
+
+</p>
+
+<div class="info-grid">
+
+<div class="info-box">
+<h3>Duration</h3>
+<p>8 Weeks Intensive Program</p>
+</div>
+
+<div class="info-box">
+<h3>Mode</h3>
+<p>Online Sessions + Assignments</p>
+</div>
+
+<div class="info-box">
+<h3>Course Fee</h3>
+<p>₹2,499 Only</p>
+</div>
+
+<div class="info-box">
+<h3>Certification</h3>
+<p>Research & Writing Certificate</p>
+</div>
+
+</div>
+
+<h3>What You Will Learn</h3>
+
+<ul>
+
+<li>Legal research methodologies</li>
+<li>Case law and statute analysis</li>
+<li>Research paper drafting techniques</li>
+<li>Legal citation formats</li>
+<li>Memorial and article drafting</li>
+<li>Practical legal writing methods</li>
+
+</ul>
+
+<a
+href="https://docs.google.com/forms/d/e/1FAIpQLSey0tBxo6vIiElK45b2FGtL-mNo2tYyEO6zMpWVYnHstFDOug/viewform?usp=dialog"
+target="_blank"
+class="enroll-btn">
+
+Enroll Now
+
+</a>
+
+</section>
+
+<!-- BLOG WRITING -->
+
+<section id="blog-writing">
+
+<h2 class="course-title">
+Blog Writing & Publishing
+</h2>
+
+<p>
+
+This course is designed for students, beginners, and aspiring content creators who wish to learn professional blog writing, legal content creation, article structuring, formatting techniques, and online publishing methods.
+
+</p>
+
+<div class="info-grid">
+
+<div class="info-box">
+<h3>Duration</h3>
+<p>4 Weeks Training Program</p>
+</div>
+
+<div class="info-box">
+<h3>Mode</h3>
+<p>Online Interactive Sessions</p>
+</div>
+
+<div class="info-box">
+<h3>Course Fee</h3>
+<p>₹1,299 Only</p>
+</div>
+
+<div class="info-box">
+<h3>Certification</h3>
+<p>Blog Writing & Publishing Certificate</p>
+</div>
+
+</div>
+
+<h3>Benefits of This Course</h3>
+
+<ul>
+
+<li>Improve professional writing abilities</li>
+<li>Learn online content publishing techniques</li>
+<li>Develop legal and professional blogging skills</li>
+<li>Build strong article drafting abilities</li>
+<li>Enhance communication and creative writing skills</li>
+
+</ul>
+
+<a
+href="https://docs.google.com/forms/d/e/1FAIpQLSey0tBxo6vIiElK45b2FGtL-mNo2tYyEO6zMpWVYnHstFDOug/viewform?usp=dialog"
+target="_blank"
+class="enroll-btn">
+
+Enroll Now
+
+</a>
+
+</section>
+
+<!-- CONTRACT -->
+
+<section id="contract">
+
+<h2 class="course-title">
+Contract Drafting Essentials
+</h2>
+
+<p>
+
+A practical drafting course designed to help students understand agreement structures, drafting clauses, commercial contracts, legal notices, and professional legal documentation.
+
+</p>
+
+<div class="info-grid">
+
+<div class="info-box">
+<h3>Duration</h3>
+<p>6 Weeks Professional Training</p>
+</div>
+
+<div class="info-box">
+<h3>Mode</h3>
+<p>Online Practical Sessions</p>
+</div>
+
+<div class="info-box">
+<h3>Course Fee</h3>
+<p>₹2,999 Only</p>
+</div>
+
+<div class="info-box">
+<h3>Certification</h3>
+<p>Drafting Skills Certificate</p>
+</div>
+
+</div>
+
+<h3>Benefits of This Course</h3>
+
+<ul>
+
+<li>Professional drafting exposure</li>
+<li>Practical legal documentation skills</li>
+<li>Career-oriented legal training</li>
+<li>Hands-on contract drafting experience</li>
+
+</ul>
+
+<a
+href="https://docs.google.com/forms/d/e/1FAIpQLSey0tBxo6vIiElK45b2FGtL-mNo2tYyEO6zMpWVYnHstFDOug/viewform?usp=dialog"
+target="_blank"
+class="enroll-btn">
+
+Enroll Now
+
+</a>
+
+</section>
+
+<!-- MOOT COURT -->
+
+<section id="moot-court">
+
+<h2 class="course-title">
+Moot Court Training, Competition & Certification
+</h2>
+
+<p>
+
+This course provides practical advocacy training focused on memorial drafting, oral arguments, courtroom etiquette, legal presentation techniques, and participation in moot court competitions.
+
+</p>
+
+<div class="info-grid">
+
+<div class="info-box">
+<h3>Duration</h3>
+<p>5 Weeks Practical Training Program</p>
+</div>
+
+<div class="info-box">
+<h3>Mode</h3>
+<p>Online Interactive Moot Sessions</p>
+</div>
+
+<div class="info-box">
+<h3>Course Fee</h3>
+<p>₹2,499 Only</p>
+</div>
+
+<div class="info-box">
+<h3>Certification</h3>
+<p>Moot Court Training & Competition Certificate</p>
+</div>
+
+</div>
+
+<h3>Benefits of This Course</h3>
+
+<ul>
+
+<li>Practical courtroom exposure</li>
+<li>Improve advocacy and speaking confidence</li>
+<li>Develop legal presentation abilities</li>
+<li>Enhance memorial drafting skills</li>
+<li>Build professional legal communication skills</li>
+
+</ul>
+
+<a
+href="https://docs.google.com/forms/d/e/1FAIpQLSey0tBxo6vIiElK45b2FGtL-mNo2tYyEO6zMpWVYnHstFDOug/viewform?usp=dialog"
+target="_blank"
+class="enroll-btn">
+
+Enroll Now
+
+</a>
+
+</section>
+
+<!-- IP COURSE -->
+
+<section id="ip">
+
+<h2 class="course-title">
+Intellectual Property & Trademark Filing Course
+</h2>
+
+<p>
+
+This course provides practical understanding of Intellectual Property Rights including trademarks, copyrights, patents, filing procedures, and introductory IP law concepts.
+
+</p>
+
+<div class="info-grid">
+
+<div class="info-box">
+<h3>Duration</h3>
+<p>5 Weeks Training Program</p>
+</div>
+
+<div class="info-box">
+<h3>Mode</h3>
+<p>Online Interactive Sessions</p>
+</div>
+
+<div class="info-box">
+<h3>Course Fee</h3>
+<p>₹2,999 Only</p>
+</div>
+
+<div class="info-box">
+<h3>Certification</h3>
+<p>IP & Trademark Filing Certificate</p>
+</div>
+
+</div>
+
+<h3>Benefits of This Course</h3>
+
+<ul>
+
+<li>Practical exposure to IP filing</li>
+<li>Understanding of trademark procedures</li>
+<li>Professional legal skill development</li>
+<li>Career enhancement in IP practice</li>
+
+</ul>
+
+<a
+href="https://docs.google.com/forms/d/e/1FAIpQLSey0tBxo6vIiElK45b2FGtL-mNo2tYyEO6zMpWVYnHstFDOug/viewform?usp=dialog"
+target="_blank"
+class="enroll-btn">
+
+Enroll Now
+
+</a>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+© 2026 JurisNova Academy | All Rights Reserved
+
+</footer>
+
+<!-- TOP BUTTON -->
+
+<button id="topBtn">
+↑
+</button>
+
+<script>
+
+/* MOBILE MENU */
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+});
+
+/* DROPDOWN */
+
+const dropdown = document.getElementById("dropdownMenu");
+const courseBtn = document.getElementById("courseBtn");
+
+courseBtn.addEventListener("click", function(e){
+
+    e.preventDefault();
+
+    dropdown.classList.toggle("active");
+
+});
+
+/* CLOSE MENU AFTER CLICK */
+
+document.querySelectorAll(".dropdown-content a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        dropdown.classList.remove("active");
+
+        navLinks.classList.remove("active");
+
+    });
+
+});
+
+/* OUTSIDE CLICK */
+
+document.addEventListener("click", function(e){
+
+    if(!dropdown.contains(e.target)){
+
+        dropdown.classList.remove("active");
+    }
+
+});
+
+/* TOP BUTTON */
+
+const topBtn = document.getElementById("topBtn");
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 300){
+
+        topBtn.style.display = "block";
+
+    } else {
+
+        topBtn.style.display = "none";
+    }
+
+});
+
+topBtn.addEventListener("click", () => {
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+});
+
+</script>
+
+</body>
+
+</html>
