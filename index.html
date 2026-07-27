@@ -337,33 +337,13 @@ DROPDOWN
 HERO
 ========================= */
 
-.hero-content{
-
-    width:90%;
-
-    max-width:950px;
-
-    position:relative;
-
-    z-index:2;
+..hero{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    text-align:center;
 }
-
-.hero-content h1{
-    color:white;
-    font-size:64px;
-    margin-bottom:20px;
-    animation:fadeDown 1s ease;
-}
-
-.hero-content p{
-
-    color:#f3f3f3;
-
-    font-size:24px;
-
-    margin-bottom:25px;
-}
-
 /* =========================
 ANIMATED TEXT
 ========================= */
@@ -1114,6 +1094,30 @@ section{
 
 }
 
+/* =========================
+MOBILE HERO
+========================= */
+
+@media (max-width:768px){
+
+.hero{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.hero-content{
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+}
 </style>
 
 </head>
