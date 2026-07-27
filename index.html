@@ -537,17 +537,11 @@ COURSE IMAGES
 .course-image{
 
     width:100%;
-
     height:220px;
-
     object-fit:cover;
-
     object-position:center;
-
     border-radius:16px;
-
     margin-bottom:18px;
-
     transition:0.4s ease;
 }
 
@@ -556,7 +550,42 @@ COURSE IMAGES
     transform:scale(1.03);
 }
 
+
 /* =========================
+EXAM BANNER
+========================= */
+
+.exam-banner{
+
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:18px;
+    margin-bottom:25px;
+}
+
+
+/* =========================
+MOBILE RESPONSIVE
+========================= */
+
+@media (max-width:768px){
+
+    .exam-banner{
+
+        width:100%;
+        height:auto;
+        border-radius:16px;
+
+    }
+
+    .course-image{
+
+        height:180px;
+
+    }
+
+}/* =========================
 TESTIMONIAL IMAGE
 ========================= */
 
@@ -1978,9 +2007,10 @@ Course Information
 
 <h2>Exam Preparation</h2>
 
-<img src="exam-preparation.png"
-     alt="Exam Preparation"
-     class="section-image">
+<img
+src="exam-preparation.png"
+alt="Exam Preparation"
+class="exam-banner">
 
 <p>
 Prepare for MH CET Law (3-Year & 5-Year LL.B.), MH CET LL.M., and the All India Bar Examination (AIBE) through expert faculty, live online classes, study material, mock tests, previous year papers, and doubt-solving sessions.
