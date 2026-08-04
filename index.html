@@ -119,10 +119,8 @@ header{
     min-height:45vh;
 
     background:
-    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.72)),
+    linear-gradient(rgba(0,0,0,0.20), rgba(0,0,0,0.30)),
     url("Homepage.png") center/cover no-repeat;
-
-    animation:heroZoom 15s ease-in-out infinite alternate;
 
     display:flex;
 
@@ -594,32 +592,6 @@ BOOK SECTION
     margin:auto;
 }
 
-/* Mobile */
-
-@media(max-width:768px){
-
-.floating{
-
-    font-size:20px;
-
-}
-
-header{
-
-    background-image:
-    linear-gradient(rgba(0,0,0,0.20), rgba(0,0,0,0.30)),
-    url("Homepage-mobile.png");
-
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-
-    height:500px;
-
-}
-
-}
-
 }
 
 .book-container{
@@ -1015,7 +987,15 @@ MOBILE
 @media(max-width:768px){
 
 header{
+
+    min-height:500px;
+
     padding:20px;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.20), rgba(0,0,0,0.30)),
+    url("Homepage.png") center center / cover no-repeat;
+
 }
 
 .logo{
