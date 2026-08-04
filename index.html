@@ -116,11 +116,13 @@ header{
 
     position:relative;
 
-    min-height:75vh;
+    min-height:45vh;
 
     background:
     linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.72)),
     url("Homepage.png") center/cover no-repeat;
+
+    animation:heroZoom 15s ease-in-out infinite alternate;
 
     display:flex;
 
@@ -146,6 +148,8 @@ LOGO
     left:24px;
 
     z-index:1002;
+
+    animation:logoFade 1.2s ease;
 }
 
 .logo img{
@@ -318,11 +322,13 @@ HERO
     position:relative;
 
     z-index:2;
+
+    animation:heroContent 1.2s ease;
 }
 
 .hero-content h1{
     color:white;
-    font-size:64px;
+    font-size:48px;
     margin-bottom:20px;
     animation:fadeDown 1s ease;
 }
@@ -331,7 +337,7 @@ HERO
 
     color:#f3f3f3;
 
-    font-size:24px;
+    font-size:20px;
 
     margin-bottom:25px;
 }
@@ -589,6 +595,18 @@ BOOK SECTION
 /* Mobile */
 
 @media(max-width:768px){
+
+.floating{
+
+    font-size:20px;
+
+}
+
+header{
+
+    min-height:42vh;
+
+}
 
 .book-container{
 
@@ -1179,6 +1197,118 @@ section{
 
 }
 
+@keyframes heroZoom{
+
+    from{
+
+        background-size:100%;
+
+    }
+
+    to{
+
+        background-size:110%;
+
+    }
+
+}
+
+@keyframes logoFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes heroContent{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.floating{
+
+    position:absolute;
+
+    font-size:32px;
+
+    opacity:.25;
+
+    animation:floatIcons 7s ease-in-out infinite;
+
+    z-index:1;
+
+}
+
+.floating1{
+
+    top:18%;
+    left:12%;
+
+}
+
+.floating2{
+
+    top:28%;
+    right:15%;
+
+}
+
+.floating3{
+
+    bottom:15%;
+    left:55%;
+
+}
+
+@keyframes floatIcons{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-18px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
 </style>
 
 </head>
@@ -1208,6 +1338,9 @@ white-space:nowrap;
 <div class="bg-shape shape2"></div>
 
 <header id="home">
+<div class="floating floating1">⚖️</div>
+<div class="floating floating2">📚</div>
+<div class="floating floating3">🎓</div>
 
 <div class="logo">
 
@@ -1294,6 +1427,10 @@ About ▾
 <h1>JurisNova Academy & Legal Services</h1>
 
 <p>Illuminating the Law. Advancing Justice.</p>
+<div class="hero-buttons">
+    <a href="#Courses" class="btn">Explore Courses</a>
+    <a href="#opportunities" class="btn">Internships</a>
+</div>
 
 <div class="animated-text">
 
