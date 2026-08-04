@@ -640,11 +640,16 @@ EXAM BANNER
 
     width:100%;
     height:auto;
-    display:block;
-    border-radius:18px;
-    margin-bottom:25px;
-}
 
+    border-radius:18px;
+
+    display:block;
+
+    object-fit:cover;
+
+    object-position:center;
+
+}
 
 /* =========================
 MOBILE RESPONSIVE
@@ -652,19 +657,19 @@ MOBILE RESPONSIVE
 
 @media (max-width:768px){
 
-    .exam-banner{
+  .exam-banner{
 
-        width:100%;
-        height:auto;
-        border-radius:16px;
+    width:100%;
 
-    }
+    height:320px;
 
-    .course-image{
+    object-fit:cover;
 
-        height:180px;
+    object-position:left center;
 
-    }
+    border-radius:16px;
+
+}
 
 }/* =========================
 TESTIMONIAL IMAGE
@@ -1382,6 +1387,24 @@ border-color:rgba(255,255,255,.45);
 
 box-shadow:
 0 14px 35px rgba(0,0,0,.28);
+
+}
+
+.service-box{
+
+opacity:0;
+
+transform:translateY(40px);
+
+transition:.7s ease;
+
+}
+
+.service-box.show{
+
+opacity:1;
+
+transform:translateY(0);
 
 }
 
@@ -3708,6 +3731,26 @@ setInterval(()=>{
 },4000);
 
 </script>
+<script>
 
+const cards=document.querySelectorAll(".service-box");
+
+const observer=new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+},{threshold:.15});
+
+cards.forEach(card=>observer.observe(card));
+
+</script>
 </body>
 </html>
